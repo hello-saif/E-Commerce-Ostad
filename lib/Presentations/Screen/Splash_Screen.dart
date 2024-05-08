@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
+import '../Widget/LogoWidget.dart';
+import 'EmailVerifaction.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -21,24 +24,24 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> _moveToNextScreen() async {
     await Future.delayed(const Duration(seconds: 2));
-    Get.offAll(const HomeScreen());
+    Get.offAll(const EmailVerificationScreen());
   }
 
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return  const Scaffold(
       body: Center(
         child:Column(
           children: [
-            const Spacer(),
-            SvgPicture.asset(AssetsPath.appLogoSvg,width: 100,),
+            Spacer(),
+            LogoWidget(),
             // SvgPicture.asset('assets/images/logo.svg',width: 100,),
-            const Spacer(),
-            const CircularProgressIndicator(),
-            const SizedBox(height: 5,),
-            const Text('Version: 1.0.2'),
-            const SizedBox(height: 5,),
+            Spacer(),
+            CircularProgressIndicator(),
+            SizedBox(height: 5,),
+            Text('Version: 1.0.2'),
+            SizedBox(height: 5,),
 
           ],
         ),
@@ -46,3 +49,5 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
+
+
