@@ -106,20 +106,20 @@ class _SearchBARState extends State<SearchBAR> {
               onTapSeeAll: () {},
             ),
             const SizedBox(height: 10),
-            const SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  SizedBox(height: 10),
-                  ProductCard(),
-                  SizedBox(width: 10), // Adjust spacing between ProductCards
-                  ProductCard(),
-                  SizedBox(width: 10), // Adjust spacing between ProductCards
-                  ProductCard(),
-                  SizedBox(width: 10), // Adjust spacing between ProductCards
-                ],
-              ),
-            )
+            const ProductWidget(),
+            const SizedBox(height: 16),
+            SectionHeader(
+              title: 'Popular',
+              onTapSeeAll: () {},
+            ),
+            const ProductWidget(),
+            const SizedBox(height: 16),
+            SectionHeader(
+              title: 'New',
+              onTapSeeAll: () {},
+            ),
+            const ProductWidget(),
+
 
 
           ],
@@ -139,6 +139,30 @@ class _SearchBARState extends State<SearchBAR> {
         separatorBuilder: (BuildContext context, int index) {
           return const SizedBox(width: 16);
         },
+      ),
+    );
+  }
+}
+
+class ProductWidget extends StatelessWidget {
+  const ProductWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          SizedBox(height: 10),
+          ProductCard(),
+          SizedBox(width: 10), // Adjust spacing between ProductCards
+          ProductCard(),
+          SizedBox(width: 10), // Adjust spacing between ProductCards
+          ProductCard(),
+          SizedBox(width: 10), // Adjust spacing between ProductCards
+        ],
       ),
     );
   }
